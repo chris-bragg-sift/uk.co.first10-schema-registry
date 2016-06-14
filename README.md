@@ -32,7 +32,24 @@ Note that if you have JSON data already and you want to create a corresponding s
 
 ## 2. Uploading the schemas to Iglu
 
-*Generally the process is as follows:*
+Once you've created your schemas, you need to upload them to Iglu. In practice, this means copying them into S3.
+
+This is a two part process:
+
+1. [Upload the schemas to snowplow-mini](snowplow-mini) (for testing)
+2. [Upload the schemas to Iglu for the full pipeline](full)
+
+### 2.1 Upload the schemas to snowplow-mini
+
+Run the following command to publish all schemas to the Iglu server bundled with Snowplow-mini:
+
+```
+./iglu_server_upload.sh http://{{ IP TO BE SETUP }}:8081 {{ UUID TO BE SETUP }} schemas
+```
+
+Note that you can specify individual schemas if you prefer.
+
+### 2.2 Upload the schemas to Iglu for the full pipeline
 
 Once you've created your schemas, you need to upload them to Iglu. In practice, this means copying them into S3.
 
@@ -44,16 +61,11 @@ git commit -m "Committed finalized schema"
 git push
 ```
 
-Then push it to Iglu. Note that as a trial user you will have to ask the Snowplow team to do this for you. As a Managed Services
-customer you would be able to do it yourself as follows:
+Then push it to Iglu:
 
 ```
 aws s3 cp schemas s3://snowplow-uk-co-first10-iglu-schemas/schemas --include "*" --recursive
 ```
-
-*Trial users will have to work with the Snowplow team to commit new schemas*
-
-Trial users will need to commit schemas to the Github repo, and then ping [support@snowplowanalytics.com](mailto:support@snowplowanalytics.com) to have those schema deployed.
 
 Useful resources
 
@@ -147,6 +159,8 @@ In both cases (custom unstructured events and contexts), the data is sent in as 
 For more detail, please see the technical documentation for the specific tracker you're implementing.
 
 Note: we recommend testing that the data you're sending into Snowplow conforms to the schemas you've defined and uploaded into Iglu, before pushing updates into production. This [online JSON schema validator](http://jsonschemalint.com/draft4/) is a very useful resource for doing so.
+
+We also recommend testing that the events are sent successfully using Snowplow-Mini. You do this by configuring the collector in the tracker to `{{ IP address to be setup }}:8080` and then logging onto http://{{ IP address to be setup }} to review the results e.g. in Kibana. (Follow the links on the page.) Note that you need to have your IP whitelisted before you can view data on Snowplow-mini.
 
 ## 7. Managing schema migrations
 
