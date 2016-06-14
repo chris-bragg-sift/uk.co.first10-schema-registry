@@ -48,7 +48,7 @@ Then push it to Iglu. Note that as a trial user you will have to ask the Snowplo
 customer you would be able to do it yourself as follows:
 
 ```
-aws s3 cp schemas s3://snowplow-com-companyname-iglu-schemas/schemas --include "*" --recursive
+aws s3 cp schemas s3://snowplow-uk-co-first10-iglu-schemas/schemas --include "*" --recursive
 ```
 
 *Trial users will have to work with the Snowplow team to commit new schemas*
@@ -67,7 +67,7 @@ Useful resources
 Once you've defined the jsonschema for your new event or context type you need to create a correpsonding jsonpath file and sql table definition. This can be done programmatically using [Schema Guru] [schema-guru-github]. From the root of the repo:
 
 ```
-/path/to/schema-guru-0.6.0 ddl --with-json-paths schemas/com.mycompany/new_event_or_context_name
+/path/to/schema-guru-0.6.2 ddl --with-json-paths schemas/uk.co.first10/new_event_or_context_name
 ```
 
 A corresponding jsonpath file and sql table definition file will be generated in the appropriate folder in the repo.
@@ -75,7 +75,7 @@ A corresponding jsonpath file and sql table definition file will be generated in
 Note that you can create SQL table definition and jsonpath files for all the events / contexts schema'd as follows:
 
 ```
-/path/to/schema-guru-0.6.0 ddl --with-json-paths schemas/com.mycompany
+/path/to/schema-guru-0.6.2 ddl --with-json-paths schemas/uk.co.first10
 ```
 
 
@@ -95,7 +95,7 @@ Then push to Iglu. Again, you can only do this yourself as a Managed Services cu
 ask a member of the Snowplow Analytics team to do this for you.
 
 ```
-aws s3 cp jsonpaths s3://snowplow-com-companyname-iglu-jsonpaths/jsonpaths --include "*" --recursive
+aws s3 cp jsonpaths s3://snowplow-uk-co-first10-iglu-jsonpaths/jsonpaths --include "*" --recursive
 ```
 
 *Trial users will have to work with the Snowplow team to commit new jsonpath files*
