@@ -26,7 +26,7 @@
 			"maxLength": 255
 		},
 		"page_date": {
-			"type": "date",
+			"type": "date"
 		},
 		"page_title": {
 			"type": "string",
