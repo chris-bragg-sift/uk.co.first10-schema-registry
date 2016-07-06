@@ -1,0 +1,45 @@
+{
+	"$schema": "http://iglucentral.com/schemas/com.snowplowanalytics.self-desc/schema/jsonschema/1-0-0#",
+	"description": "Schema for an page context",
+	"self": {
+		"vendor": "uk.co.first10",
+		"name": "page",
+		"format": "jsonschema",
+		"version": "1-0-0"
+	},
+
+	"type": "object",
+	"properties": {
+		"page_id": {
+			"type": "integer"
+		},
+		"page_categories": {
+			"type": "string",
+			"maxLength": 255
+		},
+		"page_type": {
+			"type": "string",
+			"maxLength": 255
+		},
+		"page_type_2": {
+			"type": "string",
+			"maxLength": 255
+		},
+		"page_date": {
+			"type": "date",
+		},
+		"page_title": {
+			"type": "string",
+			"maxLength": 255
+		},
+		"visitor_login_state": {
+			"type": "string",
+			"maxLength": 40
+		},
+		"visitor_type": {
+			"type": "string",
+			"maxLength": 40
+		}
+	},
+	"additionalProperties": false
+}
