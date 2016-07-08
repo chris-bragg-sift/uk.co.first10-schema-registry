@@ -44,7 +44,7 @@ This is a two part process:
 Run the following command to publish all schemas to the Iglu server bundled with Snowplow-mini:
 
 ```
-./iglu_server_upload.sh http://{{ IP TO BE SETUP }}:8081 {{ UUID TO BE SETUP }} schemas
+./iglu_server_upload.sh http://86.168.206.144:8081 44581810-3666-4f9a-9295-caa46d0df842 schemas
 ```
 
 Note that you can specify individual schemas if you prefer.
