@@ -1,0 +1,21 @@
+{
+    "jsonpaths": [
+        "$.schema.vendor",
+        "$.schema.name",
+        "$.schema.format",
+        "$.schema.version",
+        "$.hierarchy.rootId",
+        "$.hierarchy.rootTstamp",
+        "$.hierarchy.refRoot",
+        "$.hierarchy.refTree",
+        "$.hierarchy.refParent",
+        "$.data.page_categories",
+        "$.data.page_date",
+        "$.data.page_id",
+        "$.data.page_title",
+        "$.data.page_type",
+        "$.data.page_type_2",
+        "$.data.visitor_login_state",
+        "$.data.visitor_type"
+    ]
+}
